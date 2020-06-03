@@ -23,7 +23,8 @@ export default function TwitCard (props) {
             const jsonData = JSON.stringify({
                 'message': twitMessage,
                 'owner': props.user._id,
-                'parent': props.parent || null
+                'parent': props.parent || null,
+                'image': null
             })
 
             const formData = new FormData();
