@@ -42,7 +42,7 @@ export default function Landing(props) {
 		} else {
 			if (!camposValidos ('create_new_user')) return;
 
-			const auth = await fetch(API_SERVER_ROUTE + '/api/user', {
+			const newUser = await fetch(API_SERVER_ROUTE + '/api/user', {
 				method: 'POST',
 				body: JSON.stringify({
 					name,
@@ -55,7 +55,7 @@ export default function Landing(props) {
 				},
 				credentials: 'include'
 			})
-			const response = await auth.json()
+			const response = await newUser.json()
 			if (response) {
 				await props.setUser(response)
 			}else {
@@ -65,6 +65,19 @@ export default function Landing(props) {
 				await feedbackMsn.classList.add("d-block");
 				await feedbackMsn.classList.add("text-danger");
 			}
+			// Después de crear un usuario inicio sesión en el servidor
+			await fetch(API_SERVER_ROUTE + '/api/user/auth', {
+				method: 'POST',
+				body: JSON.stringify({
+					slug,
+					password
+				}),
+				headers: {
+					'Accept': 'application/json',
+					'Content-Type': 'application/json'
+				},
+				credentials: 'include'
+			})
 		}
 	}
 
