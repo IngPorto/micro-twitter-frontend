@@ -150,9 +150,9 @@ export default function Wall (props) {
                 <form className="p-1" onSubmit={handleSubmit}>
 
                     <div className="input-group">
-                        <input type="text" className="form-control search-input" placeholder="Buscar en MicroTwitter" aria-label="Recipient's username" aria-describedby="button-addon2" />
+                        <input type="text" className="form-control search-input" placeholder="Buscar en MicroTwitter" aria-label="Recipient's username" aria-describedby="button-addon2" disabled />
                         <div className="input-group-append">
-                            <button className="btn btn-outline-dark search-button" type="submit" id="button-addon2"><i className="fa fa-search"></i></button>
+                            <button className="btn btn-outline-dark search-button" type="submit" id="button-addon2" disabled><i className="fa fa-search"></i></button>
                         </div>
                     </div>
 
@@ -194,7 +194,9 @@ export default function Wall (props) {
             <div className="footer">
                 <div className="items-container">
                     <span className="micro-profile texto-pequeno">
-                        <img onClick={scroll} src={props.user.photo} />
+                        <Link href="/user/[user_id]" as={`/user/${props.user._id}`}>
+                            <img src={props.user.photo} />
+                        </Link>
                         <div className="description">
                             <p className="m-0 p-0 text-white">@{props.user.slug}</p>
                             <p className="m-0 p-0 text-white">
@@ -204,6 +206,9 @@ export default function Wall (props) {
                             </p>
                         </div>
                     </span>
+                    <div>
+                        <p onClick={scroll} class="text-danger m-0 mr-2">Logout</p>
+                    </div>
                 </div>
             </div>
 
@@ -227,6 +232,11 @@ export default function Wall (props) {
                 padding: 6px;
                 backdrop-filter: blur(5px);
                 z-index: 100;
+            }
+            .items-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
             }
             .micro-profile {
                 display: flex;
