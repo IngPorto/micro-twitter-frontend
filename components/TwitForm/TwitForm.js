@@ -20,6 +20,12 @@ export default function TwitCard (props) {
     const handleSendTwit = e => {
         e.preventDefault()
         if ( twitMessage.trim() != ''){
+            const jsonData = JSON.stringify({
+                'message': twitMessage,
+                'owner': props.user._id,
+                'parent': props.parent || null
+            })
+
             const formData = new FormData();
             formData.append('image',twitImage)
             formData.append('message',twitMessage)
@@ -31,9 +37,9 @@ export default function TwitCard (props) {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'multipart/form-data'
+                    'Content-Type': twitImage ? 'multipart/form-data' : 'application/json'
                 },
-                data: formData
+                data: twitImage ? formData : jsonData
             })
             document.getElementById('twit-form-layout').classList.add('d-none')
             limpiar_twit_form_layout()
