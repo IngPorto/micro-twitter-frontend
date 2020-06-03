@@ -207,7 +207,7 @@ export default function Wall (props) {
                         </div>
                     </span>
                     <div>
-                        <p onClick={scroll} class="text-danger m-0 mr-2">Logout</p>
+                        <p onClick={scroll} className="text-danger m-0 mr-2">Salir</p>
                     </div>
                 </div>
             </div>
