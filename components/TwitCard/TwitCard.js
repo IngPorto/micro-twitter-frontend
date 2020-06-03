@@ -63,10 +63,10 @@ export default function TwitCard (props) {
                 </div>
             </div>
             <div className="twit-image-container">
-                {
+                {/*
                     props.twit.image &&
                         <img className="twit-image" src={`${props.twit.image}`} />
-                }
+                */}
             </div>
             <div className="twit-foot">
                 <p onClick={() => handleLike(props.twit._id)} className="like-btn text-muted">

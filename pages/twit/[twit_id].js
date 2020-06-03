@@ -208,12 +208,12 @@ import TwitForm from '../../components/TwitForm/TwitForm'
                             { twit.message }
                         </p>
                     </div>
-                    {
+                    {/*
                         twit.image &&
                             <div className="twit-image-container">
                                 <img className="twit-image" src={`${twit.image}`}/>
                             </div>
-                    }
+                    */}
                     {
                         user &&
                             <div className="twit-interation-options border-bottom-custom">
