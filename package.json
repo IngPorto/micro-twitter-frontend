@@ -1,0 +1,22 @@
+{
+  "name": "micro-twitter",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "export": "next build & next export -o build"
+  },
+  "dependencies": {
+    "date-fns": "^2.13.0",
+    "next": "9.3.6",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "validate.js": "^0.13.1",
+    "axios": "^0.19.2"
+  },
+  "devDependencies": {
+    "file-loader": "^6.0.0"
+  }
+}
