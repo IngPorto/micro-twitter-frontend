@@ -20,28 +20,41 @@ export default function TwitCard (props) {
     const handleSendTwit = e => {
         e.preventDefault()
         if ( twitMessage.trim() != ''){
-            const jsonData = JSON.stringify({
-                'message': twitMessage,
-                'owner': props.user._id,
-                'parent': props.parent || null,
-                'image': null
-            })
 
-            const formData = new FormData();
-            formData.append('image',twitImage)
-            formData.append('message',twitMessage)
-            formData.append('owner', props.user._id)
-            props.parent && formData.append('parent', props.parent)
-
-            axios({
-                url: API_SERVER_ROUTE + `/api/twit`,
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': twitImage ? 'multipart/form-data' : 'application/json'
-                },
-                data: twitImage ? formData : jsonData
-            })
+            if(twitImage){ // Twit con imágen
+                const formData = new FormData();
+                formData.append('image',twitImage)
+                formData.append('message',twitMessage)
+                formData.append('owner', props.user._id)
+                props.parent && formData.append('parent', props.parent)
+    
+                axios({
+                    url: API_SERVER_ROUTE + `/api/twit`,
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'multipart/form-data'
+                    },
+                    data: formData
+                })
+            }else { // Twit sin imágen, solo texto
+                const jsonData = JSON.stringify({
+                    message: twitMessage,
+                    owner: props.user._id,
+                    parent: props.parent || null,
+                    image: null
+                })
+                axios({
+                    url: API_SERVER_ROUTE + `/api/twit/noImageTwit`,
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    data: jsonData
+                })
+            }
+            
             document.getElementById('twit-form-layout').classList.add('d-none')
             limpiar_twit_form_layout()
         } else {
