@@ -126,8 +126,10 @@ export default () => {
                 <span className="go-back-btn text-center" onClick={() => window.history.back() }><i className="fa fa-arrow-left"></i></span>
                 <p className="header-title mb-0 font-weight-bold">
                     {
-                        userProfileView &&
+                        typeof userProfileView !== 'undefined' ? (
+                            userProfileView &&
                             userProfileView.name
+                        ) : (<></>)
                     }
                 </p>
             </div>
@@ -142,15 +144,17 @@ export default () => {
                                 <p className="user-profile-name h2 font-weight-lighter m-0" >{userProfileView.name}</p>
                                 <p className="user-profile-antique text-muted" ><small>Antigüedad {formatDistanceToNow(parseISO(userProfileView.creation_time), { locale: eslocale})}</small></p>
                             {
-                            ( user && userProfileView._id != user._id ) &&
-                                <button 
-                                    type="button" 
-                                    className={`btn btn-sm ${userProfileView.followers.indexOf( user._id ) == (-1) ? 'btn-primary': 'btn-secondary'}`} 
-                                    onClick={ () => handleSeguir(userProfileView._id) }>
-                                    <span id="user-profile-follow-info">
-                                        { userProfileView.followers.indexOf( user._id ) == (-1) ? 'Seguir': 'Dejar de seguir' }
-                                    </span>
-                                </button>
+                               typeof user !== 'undefined' && typeof userProfileView !== 'undefined' && typeof userProfileView._id !== 'undefined'? 
+                                    (user && userProfileView._id != user._id  &&
+                                        <button 
+                                            type="button" 
+                                            className={`btn btn-sm ${userProfileView.followers.indexOf( user._id ) == (-1) ? 'btn-primary': 'btn-secondary'}`} 
+                                            onClick={ () => handleSeguir(userProfileView._id) }>
+                                            <span id="user-profile-follow-info">
+                                                { userProfileView.followers.indexOf( user._id ) == (-1) ? 'Seguir': 'Dejar de seguir' }
+                                            </span>
+                                        </button>
+                                ): (<></>)
                             }
                             </div>
                         </div>
@@ -170,16 +174,18 @@ export default () => {
                             </div>
                         </div>
                         {
-                            userTwits &&
-                            <div className="user-twits pt-3">
-                                {
-                                    userTwits.map(userTwit => {
-                                        return(
-                                            <TwitCard twit={userTwit} user={user} key={userTwit._id}/>
-                                        )
-                                    })
-                                }
-                            </div>
+                            typeof userTwits !== 'undefined' ?
+                                (userTwits &&
+                                <div className="user-twits pt-3">
+                                    {
+                                        userTwits.map(userTwit => {
+                                            return(
+                                                <TwitCard twit={userTwit} user={user} key={userTwit._id}/>
+                                            )
+                                        })
+                                    }
+                                </div>)
+                                : (<></>)
                         }
                     </div>
                     :
