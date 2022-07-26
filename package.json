@@ -18,7 +18,7 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "validate.js": "^0.13.1",
-    "axios": "^0.19.2"
+    "axios": "^0.21.2"
   },
   "devDependencies": {
     "file-loader": "^6.0.0"
