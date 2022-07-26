@@ -1,4 +1,4 @@
 {
-    "API_SERVER_ROUTE" : "https://clontwitter.herokuapp.com",
-    "IMAGES_SERVER_ROUTE": "https://clontwitter.herokuapp.com"
+    "API_SERVER_ROUTE" : "https://clonetw-backend.herokuapp.com",
+    "IMAGES_SERVER_ROUTE": "https://clonetw-backend.herokuapp.com"
 }
