@@ -143,7 +143,7 @@ export default () => {
                             <div className="user-profile-info">
                                 <p className="user-profile-name h2 font-weight-lighter m-0" >{userProfileView.name}</p>
                                 <p className="user-profile-antique text-muted" ><small>Antigüedad {formatDistanceToNow(parseISO(userProfileView.creation_time), { locale: eslocale})}</small></p>
-                            { /*
+                            { 
                                typeof user !== 'undefined' && typeof userProfileView !== 'undefined' && typeof userProfileView._id !== 'undefined'? 
                                     (user && userProfileView._id != user._id  &&
                                         <button 
@@ -155,7 +155,7 @@ export default () => {
                                             </span>
                                         </button>
                                 ): (<></>)
-                                */
+                                
                             }
                             </div>
                         </div>
