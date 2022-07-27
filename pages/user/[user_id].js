@@ -180,10 +180,15 @@ export default () => {
                                 <div className="user-twits pt-3">
                                     {
                                         userTwits.map(userTwit => {
+                                            /*
                                             return(
                                                 typeof userTwit !== 'undefined' &&
                                                     <TwitCard twit={userTwit} user={user} key={userTwit._id}/>
                                             )
+                                            */
+                                           return(
+                                            <div>{ userTwit.message }</div>
+                                           )
                                         })
                                     }
                                 </div>)
