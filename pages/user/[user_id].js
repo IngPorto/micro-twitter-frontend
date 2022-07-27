@@ -34,10 +34,6 @@ export default () => {
         checkSession()
     },[])
 
-    useEffect( ()=>{
-        
-    },[user])
-
     /**
      * Efecto para obtener el ID de la ruta una vez la página ya esté lista
      */
@@ -178,22 +174,15 @@ export default () => {
                                 <p className="m-0 text-muted">siguidores</p>
                             </div>
                         </div>
-                        <div>type of userTwits: {typeof userTwits }</div>
-                        <div>type of user: {typeof user }</div>
                         { 
-                            typeof userTwits !== 'undefined' && typeof user !== 'undefined' ?
+                            typeof userTwits !== 'undefined' && typeof userProfileView !== 'undefined' ?
                                 (<div className="user-twits pt-3">
                                     {
                                         userTwits.map(userTwit => {
-                                            /*
                                             return(
                                                 typeof userTwit !== 'undefined' &&
-                                                    <TwitCard twit={userTwit} user={user} key={userTwit._id}/>
+                                                    <TwitCard twit={userTwit} user={userProfileView} key={userTwit._id}/>
                                             )
-                                            */
-                                           return(
-                                            <div>{ userTwit.message }</div>
-                                           )
                                         })
                                     }
                                 </div>)
