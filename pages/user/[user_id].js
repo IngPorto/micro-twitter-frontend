@@ -175,7 +175,7 @@ export default () => {
                             </div>
                         </div>
                         { 
-                            typeof userTwits !== 'undefined' ?
+                            typeof userTwits !== 'undefined' && typeof user !== 'undefined' ?
                                 (userTwits &&
                                 <div className="user-twits pt-3">
                                     {
