@@ -134,7 +134,7 @@ export default () => {
                 </p>
             </div>
             {
-                userProfileView ?
+                typeof userProfileView !== 'undefined' ?
                     <div className="user-profile">
                         <div className="user-head pl-3 pr-3 mb-2">
                             <div className="img-user-profile-container">
