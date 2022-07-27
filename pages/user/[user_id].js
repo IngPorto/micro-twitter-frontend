@@ -34,6 +34,10 @@ export default () => {
         checkSession()
     },[])
 
+    useEffect( ()=>{
+        
+    },[user])
+
     /**
      * Efecto para obtener el ID de la ruta una vez la página ya esté lista
      */
