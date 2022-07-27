@@ -174,20 +174,20 @@ export default () => {
                                 <p className="m-0 text-muted">siguidores</p>
                             </div>
                         </div>
-                        { /*
+                        { 
                             typeof userTwits !== 'undefined' ?
                                 (userTwits &&
                                 <div className="user-twits pt-3">
                                     {
                                         userTwits.map(userTwit => {
                                             return(
-                                                <TwitCard twit={userTwit} user={user} key={userTwit._id}/>
+                                                typeof userTwit !== 'undefined' &&
+                                                    <TwitCard twit={userTwit} user={user} key={userTwit._id}/>
                                             )
                                         })
                                     }
                                 </div>)
                                 : (<></>)
-                            */
                         }
                     </div>
                     :
