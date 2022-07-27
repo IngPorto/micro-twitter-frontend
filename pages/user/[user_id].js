@@ -174,6 +174,8 @@ export default () => {
                                 <p className="m-0 text-muted">siguidores</p>
                             </div>
                         </div>
+                        <div>type of userTwits: {typeof userTwits }</div>
+                        <div>type of user: {typeof user }</div>
                         { 
                             typeof userTwits !== 'undefined' && typeof user !== 'undefined' ?
                                 (<div className="user-twits pt-3">
