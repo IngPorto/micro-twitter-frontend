@@ -176,8 +176,7 @@ export default () => {
                         </div>
                         { 
                             typeof userTwits !== 'undefined' && typeof user !== 'undefined' ?
-                                (userTwits &&
-                                <div className="user-twits pt-3">
+                                (<div className="user-twits pt-3">
                                     {
                                         userTwits.map(userTwit => {
                                             /*
